@@ -14,7 +14,7 @@ class LoginViewController: UIViewController {
     
     private let emailField = CustomTextField(fieldType: .email)
     private let passwordField = CustomTextField(fieldType: .password)
-    
+
     private let loginButton = CustomButton(title: "Login", hasBackground: true, fontSize: .big)
     private let newUserButton = CustomButton(title: "New user? Create account.", fontSize: .medium)
     private let forgotPassButton = CustomButton(title: "Forgot password?", fontSize: .small)
@@ -23,8 +23,6 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
-        
-        AlertManager.showInvalidEmailAlert(on: self)
     }
     
     override func viewDidLoad() {
@@ -98,11 +96,34 @@ class LoginViewController: UIViewController {
     // MARK: -- Selectors
     
     @objc func didTapLogin(){
-        let vc = TabbarController()
-        let nav = UINavigationController(rootViewController: vc)
-//        vc.modalPresentationStyle = .fullScreen
-//        self.present(nav, animated: false, completion: nil)
-        self.tabBarController?.selectedIndex = 0
+        let loginReq: LoginUserRequest = LoginUserRequest(email: self.emailField.text ?? "", password: self.passwordField.text ?? "")
+        
+        if !Validator.isValidEmail(for: loginReq.email){
+            print(loginReq.email)
+            AlertManager.showInvalidEmailAlert(on: self)
+            return
+        }
+        
+        if !Validator.isValidPassword(for: loginReq.password){
+            AlertManager.showInvalidPasswordAlert(on: self)
+            return
+        }
+        
+        AuthService.shared.signIn(with: loginReq) { [weak self] error in
+            guard let self = self else { return }
+            if let error = error{
+                AlertManager.showLoginErrorAlert(on: self, with: error)
+                return
+            }
+            
+            if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate{
+                sceneDelegate.validateAuth()
+            }else{
+                AlertManager.showLoginErrorAlert(on: self)
+            }
+        }
+        
+        
     }
     
     @objc func didTapNewUser(){

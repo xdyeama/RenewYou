@@ -40,8 +40,8 @@ class CustomTextField: UITextField {
             self.textContentType = .emailAddress
         case .password:
             self.placeholder = "Password"
-            self.textContentType = .oneTimeCode
             self.isSecureTextEntry = true
+
         }
     }
     

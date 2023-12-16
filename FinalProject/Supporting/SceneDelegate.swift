@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -14,20 +15,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
+        setupWindow(with: scene)
+        self.validateAuth()
+        
+
+    }
+    
+    func setupWindow(with scene: UIScene){
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
         window.backgroundColor = .white
         
-        
-        let tabbar = UITabBarController()
-        
-        
+        self.window = window
+        self.window?.makeKeyAndVisible()
+    }
+    
+    func setupTabbar(with tabbar: UITabBarController){
         
         let homeVC = UINavigationController(rootViewController: HomeViewController())
         let discoverVC =  UINavigationController(rootViewController: DiscoverViewController())
         let consultVC = UINavigationController(rootViewController: ConsultViewController())
-        let profileVC = UINavigationController(rootViewController: LoginViewController())
+        let profileVC = UINavigationController(rootViewController: ProfileViewController())
         
         homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "home_icon"), selectedImage: UIImage(named: "home"))
         discoverVC.tabBarItem = UITabBarItem(title: "Discover", image: UIImage(named: "discover_icon"), selectedImage: UIImage(named: "discover_icon"))
@@ -39,33 +48,38 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabbar.tabBar.isTranslucent = false
         tabbar.tabBar.barStyle = .default
         
-        
-        window.rootViewController = tabbar
-        
-        self.window = window
-        self.window?.makeKeyAndVisible()
-
+    }
+    
+    public func validateAuth(){
+        if Auth.auth().currentUser == nil {
+            // go to sign in screen
+            let vc = LoginViewController()
+            animateToController(with: vc)
+        }else{
+            // go to home screen
+            let tabbar = UITabBarController()
+            setupTabbar(with: tabbar)
+            animateToController(with: tabbar)
+            
+        }
+    }
+    
+    private func animateToController(with vc: UIViewController){
+        DispatchQueue.main.async { [weak self] in
+            UIView.animate(withDuration: 0.25) {
+                self?.window?.layer.opacity = 0
+            } completion: { [weak self] _ in
+                let nav = UINavigationController(rootViewController: vc)
+                nav.modalPresentationStyle = .fullScreen
+                self?.window?.rootViewController = nav
+                
+                UIView.animate(withDuration: 0.25) { [weak self] in
+                    self?.window?.layer.opacity = 1
+                }
+            }
+        }
     }
 
-    func sceneDidDisconnect(_ scene: UIScene) {
-        
-    }
-
-    func sceneDidBecomeActive(_ scene: UIScene) {
-        
-    }
-
-    func sceneWillResignActive(_ scene: UIScene) {
-        
-    }
-
-    func sceneWillEnterForeground(_ scene: UIScene) {
-        
-    }
-
-    func sceneDidEnterBackground(_ scene: UIScene) {
-        
-    }
 
 
 }
