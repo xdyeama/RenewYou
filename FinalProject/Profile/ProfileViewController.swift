@@ -13,16 +13,12 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .systemCyan
+        self.view.backgroundColor = .white
         
-        var label = UILabel()
-        
-
-        
-        label.font = .boldSystemFont(ofSize: 20)
-        label.text = "Profile"
-        
-        self.view.addSubview(label)
     }
+    
+
+
+
 
 }
