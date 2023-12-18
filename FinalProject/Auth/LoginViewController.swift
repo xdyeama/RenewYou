@@ -96,10 +96,10 @@ class LoginViewController: UIViewController {
     // MARK: -- Selectors
     
     @objc func didTapLogin(){
-        let loginReq: LoginUserRequest = LoginUserRequest(email: self.emailField.text ?? "", password: self.passwordField.text ?? "")
-        
+        print("login is \(self.emailField.text)")
+        print("Password is \(self.passwordField.text)")
+        let loginReq: LoginUserRequest = LoginUserRequest(email: self.emailField.text ?? "xdyeama@gmail.", password: self.passwordField.text ?? "")
         if !Validator.isValidEmail(for: loginReq.email){
-            print(loginReq.email)
             AlertManager.showInvalidEmailAlert(on: self)
             return
         }

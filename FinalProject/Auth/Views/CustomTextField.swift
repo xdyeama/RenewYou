@@ -1,15 +1,15 @@
-
-//  CustomTextField.swift
-//  FinalProject
 //
-//  Created by Beket Barlykov  on 15.12.2023.
+//  CustomTextField.swift
+//  swift-login-system-tutorial
+//
+//  Created by YouTube on 2022-10-29.
 //
 
 import UIKit
 
 class CustomTextField: UITextField {
-
-    enum CustomTextFieldType{
+    
+    enum CustomTextFieldType {
         case username
         case email
         case password
@@ -17,7 +17,7 @@ class CustomTextField: UITextField {
     
     private let authFieldType: CustomTextFieldType
     
-    init(fieldType: CustomTextFieldType){
+    init(fieldType: CustomTextFieldType) {
         self.authFieldType = fieldType
         super.init(frame: .zero)
         
@@ -35,13 +35,15 @@ class CustomTextField: UITextField {
         case .username:
             self.placeholder = "Username"
         case .email:
-            self.placeholder = "Email adress"
+            self.placeholder = "Email Address"
             self.keyboardType = .emailAddress
             self.textContentType = .emailAddress
+            
         case .password:
             self.placeholder = "Password"
+            self.textContentType = .oneTimeCode
             self.isSecureTextEntry = true
-
+            self.enablesReturnKeyAutomatically = true
         }
     }
     
@@ -49,6 +51,4 @@ class CustomTextField: UITextField {
         fatalError("init(coder:) has not been implemented")
     }
     
-
 }
-

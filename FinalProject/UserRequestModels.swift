@@ -14,8 +14,4 @@ struct RegisterUserRequest {
     let password: String
 }
 
-struct LoginUserRequest{
-    let email: String
-    let password: String
-}
 

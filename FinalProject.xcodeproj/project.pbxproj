@@ -39,6 +39,7 @@
 		6651E3412B14A2EF0055E9AC /* ConsultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6651E3402B14A2EF0055E9AC /* ConsultViewController.swift */; };
 		6651E3442B14A3130055E9AC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6651E3432B14A3130055E9AC /* ProfileViewController.swift */; };
 		6651E3472B1A3F0B0055E9AC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6651E3462B1A3F0B0055E9AC /* Extensions.swift */; };
+		6690E40C2B308E4E00CF3E88 /* LoginUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6690E40B2B308E4E00CF3E88 /* LoginUserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		6651E3402B14A2EF0055E9AC /* ConsultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultViewController.swift; sourceTree = "<group>"; };
 		6651E3432B14A3130055E9AC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6651E3462B1A3F0B0055E9AC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		6690E40B2B308E4E00CF3E88 /* LoginUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				662222CF2B2D794E002D7338 /* AuthService.swift */,
 				662222D12B2D7B2E002D7338 /* UserRequestModels.swift */,
 				662222E12B2DD0DA002D7338 /* Validator.swift */,
+				6690E40B2B308E4E00CF3E88 /* LoginUserModel.swift */,
 			);
 			path = FinalProject;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				662222E22B2DD0DA002D7338 /* Validator.swift in Sources */,
 				662222B12B2B6A50002D7338 /* RegViewController.swift in Sources */,
 				664C0E8B2B0F4E8800005EDC /* SceneDelegate.swift in Sources */,
+				6690E40C2B308E4E00CF3E88 /* LoginUserModel.swift in Sources */,
 				662222B42B2B6B5D002D7338 /* AuthHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

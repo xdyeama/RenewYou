@@ -125,8 +125,9 @@ class RegViewController: UIViewController {
     // MARK: -- Selectors
     
     @objc func didTapRegister(){
+        print("login is \(self.emailField.text)")
+        print("Password is \(self.passwordField.text)")
         let registerReq = RegisterUserRequest(username: self.usernameField.text ?? "", email: self.emailField.text ?? "", password: self.passwordField.text ?? "")
-        print("password \(registerReq.password)")
         if !Validator.isValidUsername(for: registerReq.username){
             AlertManager.showInvalidUsernameAlert(on: self)
             return
@@ -135,7 +136,7 @@ class RegViewController: UIViewController {
             AlertManager.showInvalidEmailAlert(on: self)
             return
         }
-        if !Validator.isValidUsername(for: registerReq.password){
+        if !Validator.isValidPassword(for: registerReq.password){
             AlertManager.showInvalidEmailAlert(on: self)
             return
         }
