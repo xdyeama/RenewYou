@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        window.backgroundColor = .white
+        window.backgroundColor = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 0.96)
         
         self.window = window
         self.window?.makeKeyAndVisible()
@@ -34,14 +34,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func setupTabbar(with tabbar: UITabBarController){
         
         let homeVC = UINavigationController(rootViewController: HomeViewController())
-        let discoverVC =  UINavigationController(rootViewController: DiscoverViewController())
+        let discoverVC =  UINavigationController(rootViewController: ExploreViewController())
         let consultVC = UINavigationController(rootViewController: ConsultViewController())
         let profileVC = UINavigationController(rootViewController: ProfileViewController())
         
-        homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "home_icon"), selectedImage: UIImage(named: "home"))
-        discoverVC.tabBarItem = UITabBarItem(title: "Discover", image: UIImage(named: "discover_icon"), selectedImage: UIImage(named: "discover_icon"))
-        consultVC.tabBarItem = UITabBarItem(title: "Consult", image: UIImage(named: "consult_icon"), selectedImage: UIImage(named: "consult_icon"))
-        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile_icon"), selectedImage: UIImage(named: "profile_icon"))
+        homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "home_icon"), selectedImage: UIImage(named: "home")?.withTintColor(.black))
+        discoverVC.tabBarItem = UITabBarItem(title: "Explore", image: UIImage(named: "compass"), selectedImage: UIImage(named: "compass"))
+        consultVC.tabBarItem = UITabBarItem(title: "Consult", image: UIImage(named: "consult_icon"), selectedImage: UIImage(named: "consult_icon")?.withTintColor(.black))
+        profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile_icon"), selectedImage: UIImage(named: "profile_icon")?.withTintColor(.black))
         
         tabbar.viewControllers = [homeVC, discoverVC, consultVC, profileVC]
         
@@ -83,4 +83,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
+
+
 

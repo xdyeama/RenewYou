@@ -95,8 +95,8 @@ class HomeViewController: UIViewController {
     }()
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Beket"
-        label.font = UIFont(name: "SFProRounded-Bold", size: 24)
+        label.text = ""
+        label.font = UIFont(name: "SFProRounded-Bold", size: 30)
         label.textColor = .white
         
         return label
@@ -120,7 +120,6 @@ class HomeViewController: UIViewController {
         return stackView
     }()
     
-    private lazy var lastActivityContainer = UIScrollView()
     
     private lazy var categoryLabel: UILabel = {
         let label = UILabel()
@@ -141,15 +140,6 @@ class HomeViewController: UIViewController {
         
     }()
     
-    private lazy var lastActivityLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Last Activities"
-        label.font = .systemFont(ofSize: 24, weight: .bold)
-        label.backgroundColor = .clear
-        
-        return label
-    }()
-    
     private lazy var tableViewContainer = UIScrollView()
     
     
@@ -163,7 +153,19 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityTabs = [ActivityTab(title: "How to stay calm", author: "F.S. Fitzherald", bgImage: "activityTabImage", text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")]
+        
+        AuthService.shared.fetchUser { [weak self] user, error in
+            guard let self = self else { return }
+            if let error = error{
+                AlertManager.showFetchingError(on: self, with: error)
+                return
+            }
+            
+            if let user = user{
+                self.nameLabel.text = user.username
+            }
+        }
+        
         layoutSubviews()
     }
     
@@ -274,7 +276,6 @@ extension HomeViewController{
     func layoutBottom(){
         bottomView.addSubview(mainGrid)
         mainGrid.addArrangedSubview(categoryContainer)
-        mainGrid.addArrangedSubview(lastActivityContainer)
         categoryContainer.addArrangedSubview(categoryLabel)
         categoryContainer.addArrangedSubview(categoriesView)
         
@@ -297,20 +298,14 @@ extension HomeViewController{
             maker.height.equalTo(30)
             maker.width.equalToSuperview()
         }
-        lastActivityContainer.snp.makeConstraints{ (maker) in
-            maker.width.equalToSuperview()
-            maker.height.equalTo(160)
-            maker.centerX.equalToSuperview()
-        }
         
-        therapyTab = categoryTabSetup(labelText: "Therapy", image: "therapyTabImage", vc: JournalingViewController())
-        moodtrackerTab = categoryTabSetup(labelText: "Mood Tracker", image: "moodtrackerTabImage", vc: JournalingViewController())
-        journalingTab = categoryTabSetup(labelText: "Journaling", image: "journalingTabImage2", vc: JournalingViewController())
+        therapyTab = categoryTabSetup(labelText: "Therapy", image: "therapyTabImage", vc: JournalViewController())
+        moodtrackerTab = categoryTabSetup(labelText: "Mood Tracker", image: "moodtrackerTabImage", vc: JournalViewController())
+        journalingTab = categoryTabSetup(labelText: "Journaling", image: "journalingTabImage2", vc: JournalViewController())
         categoriesView.addArrangedSubview(therapyTab)
         categoriesView.addArrangedSubview(moodtrackerTab)
         categoriesView.addArrangedSubview(journalingTab)
         
-        setupLastActivities()
     }
     
     func categoryTabSetup(labelText: String, image: String, vc: UIViewController) -> UIView{
@@ -358,117 +353,9 @@ extension HomeViewController{
         return container
     }
     
-    func setupLastActivities(){
-        lastActivityContainer.addSubview(lastActivityLabel)
-        lastActivityContainer.addSubview(tableViewContainer)
-        
-        lastActivityContainer.snp.makeConstraints{ (maker) in
-            maker.top.equalTo(categoryContainer.snp.bottom)
-            maker.width.equalToSuperview()
-            maker.height.equalTo(200)
-            maker.centerX.equalToSuperview()
-            
-        }
-        
-        lastActivityLabel.snp.makeConstraints{ (maker) in
-            maker.top.equalToSuperview()
-            maker.width.equalToSuperview()
-            maker.horizontalEdges.equalToSuperview()
-            maker.height.equalTo(30)
-            
-        }
-        tableViewContainer.snp.makeConstraints{ (maker) in
-            maker.top.equalTo(lastActivityLabel.snp.bottom)
-            maker.height.equalTo(200)
-            maker.width.equalToSuperview()
-        }
-        
-        for activityTab in activityTabs{
-            let tabView = setupActivityTabView(title: activityTab.title, author: activityTab.author, bgImage: activityTab.bgImage, text: activityTab.text)
-            
-            tableViewContainer.addSubview(tabView)
-            tabView.snp.makeConstraints{ (maker) in
-
-                maker.top.equalTo(20)
-            }
-
-            
-        }
-        
-    }
-    
-    func setupActivityTabView(title: String, author: String, bgImage: String, text: String) -> UIView{
-        let tabView = UIView()
-        let textContainer = UIView()
-        let titleLabel = UILabel()
-        titleLabel.text = title
-        let authorLabel = UILabel()
-        authorLabel.text = author
-        let textLabel = UILabel()
-        textLabel.text = text
-        let bgImageView = UIImageView(image: UIImage(named: bgImage))
-        
-        
-        tabView.layer.cornerRadius = 10
-        
-        tabView.snp.makeConstraints{ (maker) in
-            maker.width.equalTo(300)
-            maker.height.equalTo(140)
-        }
-        tabView.addSubview(bgImageView)
-        bgImageView.snp.makeConstraints{ (maker) in
-            maker.edges.equalToSuperview()
-        }
-        
-        tabView.addSubview(textContainer);
-        textContainer.layer.cornerRadius = 10
-        textContainer.snp.makeConstraints{ (maker) in
-            maker.leading.equalTo(100)
-            maker.width.equalTo(200)
-            maker.height.equalToSuperview()
-            textContainer.backgroundColor = .white
-            textContainer.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
-            textContainer.layer.borderWidth = 1
-        }
-        
-        textContainer.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints{ (maker) in
-            maker.width.equalTo(168)
-            maker.height.equalTo(20)
-            maker.top.equalTo(20)
-            maker.leading.equalTo(16)
-            titleLabel.font = .systemFont(ofSize: 16, weight: .bold)
-            titleLabel.textColor = .black
-        }
-        
-        textContainer.addSubview(authorLabel)
-        authorLabel.snp.makeConstraints{ (maker) in
-            maker.width.equalTo(100)
-            maker.height.equalTo(13)
-            maker.top.equalTo(titleLabel.snp.bottom).offset(5)
-            maker.leading.equalTo(16)
-            authorLabel.font = .systemFont(ofSize: 10,weight: .bold)
-            authorLabel.textColor = UIColor(red: 135 / 255, green: 135 / 255, blue: 135 / 255, alpha: 1)
-        }
-        
-        textContainer.addSubview(textLabel)
-        textLabel.snp.makeConstraints{ (maker) in
-            maker.width.equalTo(166)
-            maker.height.equalTo(60)
-            maker.top.equalTo(authorLabel.snp.bottom).offset(5)
-            maker.leading.equalTo(16)
-            textLabel.font = .systemFont(ofSize: 11, weight: .bold)
-            textLabel.textColor = .black
-            textLabel.textAlignment = .natural
-            textLabel.lineBreakMode = .byWordWrapping
-            textLabel.numberOfLines = 4
-        }
-            
-        return tabView
-    }
     
     @objc func navigate(){
-        let vc = JournalingViewController()
+        let vc = JournalViewController()
         navigationController?.pushViewController(vc, animated: false)
     }
 }

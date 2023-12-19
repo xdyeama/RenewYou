@@ -33,7 +33,7 @@ class TabbarController: UITabBarController {
     
     private func setupTabs(){
         let home = self.createNav(with: "Home", and: UIImage(named: "home_icon"), vc: HomeViewController())
-        let discover = self.createNav(with: "Discover", and: UIImage(named: "discover_icon"), vc: DiscoverViewController())
+        let discover = self.createNav(with: "Explore", and: UIImage(named: "compass"), vc: ExploreViewController())
         let consult = self.createNav(with: "Consult", and: UIImage(named: "consult_icon"), vc: ConsultViewController())
         let profile = self.createNav(with: "Profile", and: UIImage(named: "profile_icon"), vc: ProfileViewController())
         self.viewControllers = [home, discover, consult, profile]

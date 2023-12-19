@@ -71,13 +71,17 @@ extension AlertManager{
 // MARK: Forgot password error alert
 extension AlertManager{
 
-    public static func passResetSent(on vc: UIViewController){
+    public static func showPassResetSent(on vc: UIViewController){
         self.showBasicAlert(on: vc, title: "Password reset sent", message: nil)
     }
     
     public static func showForgotPassErrorAlert(on vc: UIViewController, with error: Error){
         self.showBasicAlert(on: vc, title: "Error sending password reset", message: "\(error.localizedDescription)")
     }
+    
+    public static func showErrorSendingPasswordReset(on vc: UIViewController, with error: Error) {
+            self.showBasicAlert(on: vc, title: "Error Sending Password Reset", message: "\(error.localizedDescription)")
+        }
 }
 
 // MARK: Show fetching user error

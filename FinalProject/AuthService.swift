@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 class AuthService{
     public static let shared = AuthService()
+    public let db = FirebaseFirestore.Firestore.firestore()
     
     private init(){}
     
@@ -37,8 +38,7 @@ class AuthService{
                 return
             }
             
-            let db = FirebaseFirestore.Firestore.firestore()
-            db.collection("users").document(resultUser.uid).setData([
+            self.db.collection("users").document(resultUser.uid).setData([
                 "username": username,
                 "email": email
             ]) { error in
@@ -75,5 +75,36 @@ class AuthService{
             completion(error)
         }
         
+    }
+    
+    public func forgotPass(with email: String, completion: @escaping (Error?) -> Void){
+        Auth.auth().sendPasswordReset(withEmail: email){ error in
+            completion(error)
+        }
+    }
+}
+
+// MARK: User fetching
+
+extension AuthService{
+    public func fetchUser(completion: @escaping (User?, Error?) -> Void){
+        guard let userUID = Auth.auth().currentUser?.uid else { return }
+        
+        self.db.collection("users").document(userUID)
+            .getDocument { snapshot, error in
+                if let error = error{
+                    completion(nil, error)
+                    return
+                }
+                
+                if let snapshot = snapshot,
+                   let snapshotData = snapshot.data(),
+                   let username = snapshotData["username"] as? String,
+                   let email = snapshotData["email"] as? String
+                {
+                    let user = User(username: username, email: email, userUID: userUID)
+                    completion(user, nil)
+                }
+            }
     }
 }
