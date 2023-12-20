@@ -15,7 +15,7 @@ class TitleContainerView: UIView {
         title.textAlignment = .left
         return title
     }()
-    private let emptyPageButton: UIButton = {
+    public let emptyPageButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 20
         button.layer.borderWidth = 1

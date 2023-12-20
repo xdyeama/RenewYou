@@ -10,7 +10,7 @@ import UIKit
 
 class JournalViewController: UIViewController {
     private var journals: [JournalCategoryModel] = []
-    
+    var userJournals: [UserJournal] = []
     private let customNavbar = CustomNavbar(with: "journal.")
     private let myJournalsLabel: UILabel = {
         let label = UILabel()
@@ -52,13 +52,15 @@ class JournalViewController: UIViewController {
         self.myJournalOne = MyJournalView(journal: self.journals[0].templates[0])
         self.myJournalTwo = MyJournalView(journal: journals[1].templates[0])
         
-        setupNavbar()
+        self.setupNavbar()
         
-        setupMyJournals()
+        self.setupMyJournals()
 
-        setupLayout()
+        self.setupLayout()
         
-        customNavbar.backButton.addTarget(self, action: #selector(navBack), for: .touchUpInside)
+        self.customNavbar.backButton.addTarget(self, action: #selector(navBack), for: .touchUpInside)
+        self.titleContainer.emptyPageButton.addTarget(self, action: #selector(navToEditor), for: .touchUpInside)
+        
     }
     
     func setupLayout(){
@@ -194,6 +196,12 @@ class JournalViewController: UIViewController {
             }
             if journal.title == "Productivity"{
                 categoryView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(navToProductivity)))
+            }else if journal.title == "Happiness"{
+                categoryView.addGestureRecognizer(UITapGestureRecognizer(target: self,action: #selector(navToHappiness)))
+            }else if journal.title == "Self-Discovery"{
+                categoryView.addGestureRecognizer(UITapGestureRecognizer(target: self,action: #selector(navToSelfDiscovery)))
+            }else{
+                categoryView.addGestureRecognizer(UITapGestureRecognizer(target: self,action: #selector(navToStressAnxiety)))
             }
         }
     }
@@ -227,6 +235,16 @@ class JournalViewController: UIViewController {
     
     @objc func navBack(){
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func navToEditor(){
+        let vc = JournalEditorViewController()
+        vc.isTemplate = false
+        vc.topic = ""
+        vc.cb = { userJournal in
+            self.userJournals.append(userJournal)
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 

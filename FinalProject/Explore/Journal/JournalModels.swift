@@ -8,6 +8,13 @@
 import Foundation
 import UIKit
 
+struct UserJournal{
+    let title: String
+    let subTitle: String
+    let image: String
+    let date: Date
+}
+
 struct JournalTemplate{
     let title: String
     let subtitle: String
@@ -42,3 +49,4 @@ let journalsData = [
     ]),
 //    JournalCategoryModel(title: "Sleep")
 ]
+

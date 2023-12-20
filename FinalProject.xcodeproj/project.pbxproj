@@ -30,7 +30,6 @@
 		664C0E952B0F4E8B00005EDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 664C0E932B0F4E8B00005EDC /* LaunchScreen.storyboard */; };
 		664C0E9D2B0F520700005EDC /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664C0E9C2B0F520700005EDC /* TabbarController.swift */; };
 		664C0EA72B1048FB00005EDC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 664C0EA62B1048FB00005EDC /* SnapKit */; };
-		6651E3382B1240710055E9AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6651E3372B1240710055E9AC /* HomeViewController.swift */; };
 		6651E33F2B14A2C90055E9AC /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6651E33E2B14A2C90055E9AC /* ExploreViewController.swift */; };
 		6651E3412B14A2EF0055E9AC /* ConsultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6651E3402B14A2EF0055E9AC /* ConsultViewController.swift */; };
 		6651E3442B14A3130055E9AC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6651E3432B14A3130055E9AC /* ProfileViewController.swift */; };
@@ -41,7 +40,6 @@
 		66ECD4742B3158E60068421E /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ECD4732B3158E60068421E /* JournalViewController.swift */; };
 		66ECD4762B3159600068421E /* BreatheViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ECD4752B3159600068421E /* BreatheViewController.swift */; };
 		66ECD4782B31596A0068421E /* MeditateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ECD4772B31596A0068421E /* MeditateViewController.swift */; };
-		66ECD47A2B3159750068421E /* AffirmationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ECD4792B3159750068421E /* AffirmationsViewController.swift */; };
 		66ECD47C2B31629D0068421E /* CustomNavbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ECD47B2B31629D0068421E /* CustomNavbar.swift */; };
 		66ECD47E2B3169020068421E /* TitleContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ECD47D2B3169020068421E /* TitleContainerView.swift */; };
 		66ECD4802B319E780068421E /* JournalModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ECD47F2B319E780068421E /* JournalModels.swift */; };
@@ -52,6 +50,10 @@
 		66ECD48B2B320C1B0068421E /* JournalTemplateViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ECD48A2B320C1B0068421E /* JournalTemplateViewCell.swift */; };
 		66ECD48F2B32340C0068421E /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ECD48E2B32340C0068421E /* BottomSheetViewController.swift */; };
 		66ECD4912B3242B80068421E /* JournalEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ECD4902B3242B80068421E /* JournalEditorViewController.swift */; };
+		66ECD4932B325FC80068421E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ECD4922B325FC80068421E /* HomeViewController.swift */; };
+		66ECD4982B3265EF0068421E /* AffirmationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ECD4972B3265EF0068421E /* AffirmationsViewController.swift */; };
+		66ECD49A2B3286200068421E /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ECD4992B3286200068421E /* QuoteTableViewCell.swift */; };
+		66ECD49C2B328E140068421E /* QuoteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66ECD49B2B328E140068421E /* QuoteData.swift */; };
 		66FCC7D42B30E80400B99DE5 /* ExploreTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FCC7D32B30E80400B99DE5 /* ExploreTabView.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,7 +76,6 @@
 		664C0E942B0F4E8B00005EDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		664C0E962B0F4E8B00005EDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		664C0E9C2B0F520700005EDC /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
-		6651E3372B1240710055E9AC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6651E33E2B14A2C90055E9AC /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		6651E3402B14A2EF0055E9AC /* ConsultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultViewController.swift; sourceTree = "<group>"; };
 		6651E3432B14A3130055E9AC /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -85,7 +86,6 @@
 		66ECD4732B3158E60068421E /* JournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
 		66ECD4752B3159600068421E /* BreatheViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreatheViewController.swift; sourceTree = "<group>"; };
 		66ECD4772B31596A0068421E /* MeditateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditateViewController.swift; sourceTree = "<group>"; };
-		66ECD4792B3159750068421E /* AffirmationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffirmationsViewController.swift; sourceTree = "<group>"; };
 		66ECD47B2B31629D0068421E /* CustomNavbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavbar.swift; sourceTree = "<group>"; };
 		66ECD47D2B3169020068421E /* TitleContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleContainerView.swift; sourceTree = "<group>"; };
 		66ECD47F2B319E780068421E /* JournalModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalModels.swift; sourceTree = "<group>"; };
@@ -96,6 +96,10 @@
 		66ECD48A2B320C1B0068421E /* JournalTemplateViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTemplateViewCell.swift; sourceTree = "<group>"; };
 		66ECD48E2B32340C0068421E /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		66ECD4902B3242B80068421E /* JournalEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEditorViewController.swift; sourceTree = "<group>"; };
+		66ECD4922B325FC80068421E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		66ECD4972B3265EF0068421E /* AffirmationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffirmationsViewController.swift; sourceTree = "<group>"; };
+		66ECD4992B3286200068421E /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
+		66ECD49B2B328E140068421E /* QuoteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteData.swift; sourceTree = "<group>"; };
 		66FCC7D32B30E80400B99DE5 /* ExploreTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -195,8 +199,8 @@
 		6651E3392B1485960055E9AC /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				6651E3372B1240710055E9AC /* HomeViewController.swift */,
 				662222BD2B2B8158002D7338 /* Views */,
+				66ECD4922B325FC80068421E /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -215,10 +219,10 @@
 		6651E33B2B14A25B0055E9AC /* Explore */ = {
 			isa = PBXGroup;
 			children = (
+				66ECD4962B3265D10068421E /* Quotes&Affirmations */,
 				6651E33E2B14A2C90055E9AC /* ExploreViewController.swift */,
 				66FCC7D32B30E80400B99DE5 /* ExploreTabView.swift */,
 				66ECD4712B30E99A0068421E /* SearchBarView.swift */,
-				66ECD4792B3159750068421E /* AffirmationsViewController.swift */,
 				66ECD4812B319F010068421E /* Journal */,
 				66ECD47D2B3169020068421E /* TitleContainerView.swift */,
 				66ECD47B2B31629D0068421E /* CustomNavbar.swift */,
@@ -258,6 +262,16 @@
 				66ECD4902B3242B80068421E /* JournalEditorViewController.swift */,
 			);
 			path = Journal;
+			sourceTree = "<group>";
+		};
+		66ECD4962B3265D10068421E /* Quotes&Affirmations */ = {
+			isa = PBXGroup;
+			children = (
+				66ECD4972B3265EF0068421E /* AffirmationsViewController.swift */,
+				66ECD4992B3286200068421E /* QuoteTableViewCell.swift */,
+				66ECD49B2B328E140068421E /* QuoteData.swift */,
+			);
+			path = "Quotes&Affirmations";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,14 +361,16 @@
 			files = (
 				664C0E8D2B0F4E8800005EDC /* WebViewerController.swift in Sources */,
 				66ECD4762B3159600068421E /* BreatheViewController.swift in Sources */,
+				66ECD4982B3265EF0068421E /* AffirmationsViewController.swift in Sources */,
 				66ECD47E2B3169020068421E /* TitleContainerView.swift in Sources */,
 				6651E3472B1A3F0B0055E9AC /* Extensions.swift in Sources */,
-				66ECD47A2B3159750068421E /* AffirmationsViewController.swift in Sources */,
+				66ECD4932B325FC80068421E /* HomeViewController.swift in Sources */,
 				66ECD4782B31596A0068421E /* MeditateViewController.swift in Sources */,
 				6651E3442B14A3130055E9AC /* ProfileViewController.swift in Sources */,
 				662222B72B2B7245002D7338 /* LoginViewController.swift in Sources */,
 				66ECD48F2B32340C0068421E /* BottomSheetViewController.swift in Sources */,
 				66ECD4722B30E99A0068421E /* SearchBarView.swift in Sources */,
+				66ECD49C2B328E140068421E /* QuoteData.swift in Sources */,
 				662222B92B2B7A5B002D7338 /* CustomTextField.swift in Sources */,
 				66ECD4912B3242B80068421E /* JournalEditorViewController.swift in Sources */,
 				664C0E9D2B0F520700005EDC /* TabbarController.swift in Sources */,
@@ -369,7 +385,6 @@
 				66ECD4892B31F4C40068421E /* TemplateViewHeader.swift in Sources */,
 				662222AF2B2B6A2A002D7338 /* ForgotPassViewController.swift in Sources */,
 				6651E33F2B14A2C90055E9AC /* ExploreViewController.swift in Sources */,
-				6651E3382B1240710055E9AC /* HomeViewController.swift in Sources */,
 				662222BB2B2B813D002D7338 /* CustomButton.swift in Sources */,
 				66ECD4832B31A5590068421E /* JournalCategoryView.swift in Sources */,
 				66FCC7D42B30E80400B99DE5 /* ExploreTabView.swift in Sources */,
@@ -377,6 +392,7 @@
 				662222B12B2B6A50002D7338 /* RegViewController.swift in Sources */,
 				664C0E8B2B0F4E8800005EDC /* SceneDelegate.swift in Sources */,
 				6690E40C2B308E4E00CF3E88 /* Models.swift in Sources */,
+				66ECD49A2B3286200068421E /* QuoteTableViewCell.swift in Sources */,
 				66ECD4802B319E780068421E /* JournalModels.swift in Sources */,
 				66ECD47C2B31629D0068421E /* CustomNavbar.swift in Sources */,
 				662222B42B2B6B5D002D7338 /* AuthHeaderView.swift in Sources */,

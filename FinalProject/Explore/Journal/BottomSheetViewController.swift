@@ -66,6 +66,7 @@ class BottomSheetViewController: UIViewController {
         self.subTitle.text = self.journal.subtitle
         setupViews()
         
+        self.beginJournalingButton.addTarget(self, action: #selector(navToEditor), for: .touchUpInside)
         
     }
     
@@ -116,6 +117,22 @@ class BottomSheetViewController: UIViewController {
         }
     }
     
+    
+    @objc func navToEditor(){
+        let vc = JournalEditorViewController()
+        vc.isTemplate = true
+        vc.topic = journal.topic
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .pageSheet
+        
+        if let sheet = nav.sheetPresentationController{
+            sheet.detents = [.large()]
+            sheet.prefersGrabberVisible = false
+        }
+        
+        present(nav, animated: true, completion: nil)
+        
+    }
     
     
 }

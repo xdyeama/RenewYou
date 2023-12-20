@@ -31,6 +31,7 @@ class ExploreViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(red: 244/255, green: 244/255, blue: 244/255, alpha: 0.96)
         self.view.addSubview(mainView)
+        self.navigationController?.navigationBar.isHidden = true
         mainView.snp.makeConstraints{ (maker) in
             maker.edges.equalToSuperview()
         }
@@ -122,6 +123,7 @@ class ExploreViewController: UIViewController {
     }
     @objc private func navToAffirmations(){
         let vc = AffirmationsViewController()
+        vc.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

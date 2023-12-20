@@ -35,15 +35,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let homeVC = UINavigationController(rootViewController: HomeViewController())
         let discoverVC =  UINavigationController(rootViewController: ExploreViewController())
-        let consultVC = UINavigationController(rootViewController: ConsultViewController())
         let profileVC = UINavigationController(rootViewController: ProfileViewController())
         
         homeVC.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "home_icon"), selectedImage: UIImage(named: "home")?.withTintColor(.black))
         discoverVC.tabBarItem = UITabBarItem(title: "Explore", image: UIImage(named: "compass"), selectedImage: UIImage(named: "compass"))
-        consultVC.tabBarItem = UITabBarItem(title: "Consult", image: UIImage(named: "consult_icon"), selectedImage: UIImage(named: "consult_icon")?.withTintColor(.black))
         profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(named: "profile_icon"), selectedImage: UIImage(named: "profile_icon")?.withTintColor(.black))
         
-        tabbar.viewControllers = [homeVC, discoverVC, consultVC, profileVC]
+        tabbar.viewControllers = [homeVC, discoverVC, profileVC]
         
         tabbar.tabBar.isTranslucent = false
         tabbar.tabBar.barStyle = .default

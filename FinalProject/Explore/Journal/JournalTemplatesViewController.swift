@@ -1,4 +1,4 @@
-//
+///Users/beketbarlykov/Documents/advanced_ios/FinalProject/FinalProject/Explore/Journal/JournalTemplateViewCell.swift
 //  JournalTemplatesViewController.swift
 //  FinalProject
 //
